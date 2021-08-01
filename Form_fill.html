@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+<style>
+    body{
+        background-color: lightgreen;
+    }
+    h1{
+        color:white
+    }
+</style>
+<script>
+
+function change() {   
+    let progress = 0; 
+    let x = 0;
+
+    if (document.getElementById('username-input').value){
+        progress += 100/6;
+        x++;
+    }
+    if (document.getElementById('email-handler-input').value){
+        progress += 100/6;
+        x++;
+    }
+    if (document.getElementById('server-input').value){
+        progress += 100/6;
+        x++;
+    }
+    if (document.getElementById('image-input').value){
+        progress += 100/6;
+        x++;
+    }
+    if (document.getElementById('college-input').value){
+        progress += 100/6;
+        x++;
+    }
+    if (document.getElementById('conditions-input').checked){
+        progress += 100/6;
+        x++;
+    }
+    console.log(progress + "%");
+    document.getElementById('progress-bar-new').style.width = progress + "%";
+
+    if(x == 6){
+        document.getElementById('submit-button').disabled = false;
+    }   
+    else{
+        document.getElementById('submit-button').disabled = true;
+    } 
+}
+</script>
+</head>
+<body>
+<header>
+    <nav class="nav justify-content-center bg-success">
+    <div>
+        <h1>VB SoftTech Forms</h1>
+    </div>
+    </nav>
+</header>
+<div class="container">
+    <div class="d-flex justify-content-center mt-5" class="floating label">
+    <form style="width: 80%;">
+    <div class="form-floating mb-3">
+    <input type="text" 
+    id="username-input"
+    class="form-control" placeholder="Young5"
+    onchange="change('username-input')">
+    <label for="username-input">User Name</label>
+    </div>
+    
+    <div  class="input-group mb-3" class="form-floating">
+     <input type="email"  class="form-control"
+     placeholder="Email handler"
+      aria-label="email_handler" 
+      id="email-handler-input"
+     onchange="change('email-handler-input')"/>
+     <span class="input-group-text">@</span>
+     <input type="email" class="form-control" placeholder="server"
+     aria-label="server" id="server-input"
+     onchange="change('server-input')"/>
+     
+    </div>
+    <div  class="mb-3">
+        <label  class="form-label" for="image-input">Upload your Image</label>
+        <input type="file" class="form-control" id="image-input" 
+        onchange="change('image-input')" required>
+        
+    </div>
+    <div>
+        <label for="college-input" class="form-label" >Select your college name.</label>
+        <input type="text" class="form-control" list="collge-options" id="college-input"
+        placeholder="Click to select...." required>
+       <datalist id="collge-options">
+         <option value="NIT"></option>
+         <option value="BITS"></option>
+         <option value="IIT"></option>
+         <option value="IIIT"></option>
+         <option value="other"></option>
+       </datalist>
+    </div>
+    <div class="form-check form-switch m-3">
+        <input type="checkbox" name="" id="conditions-input"
+        class="form-check-input"  onchange="change('conditions-input')">
+        <label for="conditions-input" class="form-check-label">Accept all terms and conditions</label>
+    </div>
+    <div class="progress m-2">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" 
+      role="progressbar" style="width:0%" aria-valuenow="0"
+      aria-valuemin="0" aria-valuemax="0"
+      id="progress-bar-new">
+    </div>
+    </div>
+    <div class="d-flex justify-content-center m-3">
+        <button type="button" class="btn btn-success"
+        id="submit-button"
+        disabled onclick="window.location.href='test.html'">Submit</button>
+    </div>
+</div>
+</div>
+</form>
+</body>
+</html>
